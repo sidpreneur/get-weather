@@ -26,16 +26,6 @@ myButton.addEventListener('click', () => {
         else{
             var emoji='☀️';
         }
-        let map;
-
-async function initMap() {
-  const { Map } = await google.maps.importLibrary("maps");
-
-  map = new Map(document.getElementById("map"), {
-    center: { lat: data.coord.lat, lng: data.coord.lon },
-    zoom: 8,
-  });
-}
 
 
 
@@ -44,7 +34,6 @@ async function initMap() {
           <h5>Coordinates: ${data.coord.lon} , ${data.coord.lat}</h5>
           <p>Weather: ${data.weather[0].description} ${emoji}</p>
           <p>Temperature: ${(data.main.temp - 273.15).toFixed(2)}°C</p>
-          ${initMap()}
         `;
       } else {
         console.error("Error:", data.message);
